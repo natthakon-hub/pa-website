@@ -1,8 +1,0 @@
-name = "pa-website"
-compatibility_date = "2024-04-05"
-compatibility_flags = ["nodejs_compat"]
-
-[[d1_databases]]
-binding = "DB"
-database_name = "pa-website-db"
-database_id = "da69e9fa-532c-42a7-b1e2-a7f8adb20444"
