@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import '../globals.css';
+
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   const menuItems = [
