@@ -42,9 +42,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             </Link>
           ))}
         </div>
-        <div className="p-4 bg-blue-950 text-xs text-center text-blue-300">
-          <Link href="/admin" className="hover:text-white">Admin Login</Link>
-        </div>
+
       </div>
 
       {/* Main Content */}

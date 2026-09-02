@@ -7,8 +7,6 @@ export const metadata: Metadata = {
   description: 'แฟ้มสะสมผลงานอิเล็กทรอนิกส์ (E-Portfolio)',
 };
 
-export const runtime = 'edge';
-
 export default function RootLayout({
   children,
 }: Readonly<{
