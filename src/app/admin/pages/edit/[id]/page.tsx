@@ -1,8 +1,8 @@
 import PageEditor from '@/components/PageEditor';
 import Link from 'next/link';
 
-export default async function EditPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function EditPage({ params }: { params: { id: string } }) {
+  const { id } = params;
   return (
     <div className="bg-white rounded-xl shadow-md p-6">
       <div className="flex items-center mb-6 gap-4">

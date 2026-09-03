@@ -2,8 +2,8 @@ import { getRequestContext } from '@cloudflare/next-on-pages';
 
 export const runtime = 'edge';
 
-export default async function Page({ params }: { params: Promise<{ slug?: string[] }> }) {
-  const { slug: slugParam } = await params;
+export default async function Page({ params }: { params: { slug?: string[] } }) {
+  const slugParam = params?.slug;
   const slug = slugParam ? slugParam.join('/') : 'home';
   
   // Get Cloudflare D1 binding
