@@ -1,17 +1,5 @@
-import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
-
-/** @type {import('next').NextConfig} */
+﻿/** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  // Config options
 };
-
-if (process.env.NODE_ENV === 'development') {
-  setupDevPlatform().catch(console.error);
-}
-
 export default nextConfig;
