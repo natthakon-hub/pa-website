@@ -3,9 +3,9 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
-export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
+export async function GET(request: Request, { params }: { params: { id: string } }) {
   try {
-    const { id } = await params;
+    const { id } = params;
     const { env } = getRequestContext();
     const db = env.DB;
 
@@ -21,9 +21,9 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
   }
 }
 
-export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
+export async function DELETE(request: Request, { params }: { params: { id: string } }) {
   try {
-    const { id } = await params;
+    const { id } = params;
     const { env } = getRequestContext();
     const db = env.DB;
 
