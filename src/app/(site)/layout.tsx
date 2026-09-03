@@ -42,7 +42,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             </Link>
           ))}
         </div>
-
+        <div className="p-4 bg-blue-950 text-xs text-center text-blue-300">
+          <Link href="/admin" className="hover:text-white">Admin Login</Link>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -50,7 +52,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         {/* Header */}
         <header className="bg-white shadow-sm sticky top-0 z-10">
           <div className="px-8 py-4">
-            <h2 className="text-gray-800 font-semibold text-lg">แฟ้มสะสมผลงานอิเล็กทรอนิกส์ (E-Portfolio)</h2>
+            <h2 className="text-gray-800 font-semibold text-lg">การประเมินปฏิบัติงานของข้าราชการครู และบุคลากรทางการศึกษาสายงานการสอน ตำแหน่ง ครู</h2>
           </div>
         </header>
 

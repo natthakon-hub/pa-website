@@ -4,8 +4,10 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'ครูณัฏฐกร สุขสะกาว PA',
-  description: 'แฟ้มสะสมผลงานอิเล็กทรอนิกส์ (E-Portfolio)',
+  description: 'การประเมินปฏิบัติงานของข้าราชการครู และบุคลากรทางการศึกษาสายงานการสอน ตำแหน่ง ครู',
 };
+
+export const runtime = 'edge';
 
 export default function RootLayout({
   children,
