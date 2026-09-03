@@ -1,4 +1,3 @@
-export const runtime = 'edge';
 import PageEditor from '../../../../components/PageEditor';
 import Link from 'next/link';
 

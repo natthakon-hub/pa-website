@@ -1,18 +1,29 @@
-export const runtime = 'edge';
-import PageEditor from '../../../../../components/PageEditor';
-import Link from 'next/link';
+﻿import PageEditor from '../../../../components/PageEditor';
+import { neon } from '@neondatabase/serverless';
 
 export default async function EditPage({ params }: { params: { id: string } }) {
-  const { id } = params;
+  let page = null;
+  
+  if ((process.env.POSTGRES_URL || process.env.DATABASE_URL)) {
+    try {
+      const sql = neon((process.env.POSTGRES_URL || process.env.DATABASE_URL));
+      const rows = await sql\SELECT * FROM pages WHERE slug = \\;
+      if (rows.length > 0) {
+        page = rows[0];
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  if (!page) {
+    return <div>ไม่พบหน้าเนื้อหานี้</div>;
+  }
+
   return (
-    <div className="bg-white rounded-xl shadow-md p-6">
-      <div className="flex items-center mb-6 gap-4">
-        <Link href="/admin" className="text-gray-500 hover:text-gray-800">
-          &larr; กลับ
-        </Link>
-        <h2 className="text-2xl font-bold text-gray-800">แก้ไขหน้าเว็บ</h2>
-      </div>
-      <PageEditor pageId={id} />
+    <div>
+      <h2 className="text-2xl font-bold text-gray-800 mb-6">แก้ไข: {page.title}</h2>
+      <PageEditor initialData={page} />
     </div>
   );
 }

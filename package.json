@@ -10,12 +10,12 @@
     "postinstall": "node postinstall.js"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "next": "^14.2.15",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "1.13.15",
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.20",
     "@types/node": "^20",
@@ -24,8 +24,7 @@
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.15",
     "tailwindcss": "^4",
-    "typescript": "^5.4.5",
-    "wrangler": "^3.80.0"
+    "typescript": "^5.4.5"
   },
   "overrides": {
     "@cloudflare/next-on-pages": {

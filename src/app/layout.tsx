@@ -7,7 +7,6 @@ export const metadata: Metadata = {
   description: 'การประเมินปฏิบัติงานของข้าราชการครู และบุคลากรทางการศึกษาสายงานการสอน ตำแหน่ง ครู',
 };
 
-export const runtime = 'edge';
 
 export default function RootLayout({
   children,

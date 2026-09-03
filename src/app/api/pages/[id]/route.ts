@@ -1,36 +1,21 @@
-import { getRequestContext } from '@cloudflare/next-on-pages';
+﻿import { neon } from '@neondatabase/serverless';
 import { NextResponse } from 'next/server';
 
-export const runtime = 'edge';
-
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function PUT(request: Request, { params }: { params: { id: string } }) {
   try {
-    const { id } = params;
-    const { env } = getRequestContext();
-    const db = env.DB;
-
-    const page = await db.prepare('SELECT * FROM pages WHERE id = ?').bind(id).first();
+    if (!(process.env.POSTGRES_URL || process.env.DATABASE_URL)) return NextResponse.json({ error: 'DB NOT CONNECTED' }, { status: 500 });
+    const sql = neon((process.env.POSTGRES_URL || process.env.DATABASE_URL));
+    const body = await request.json();
     
-    if (!page) {
-      return NextResponse.json({ error: 'Not found' }, { status: 404 });
-    }
-
-    return NextResponse.json(page);
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
-  }
-}
-
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
-  try {
-    const { id } = params;
-    const { env } = getRequestContext();
-    const db = env.DB;
-
-    await db.prepare('DELETE FROM pages WHERE id = ?').bind(id).run();
+    await sql\
+      UPDATE pages 
+      SET title = \, content = \, updated_at = CURRENT_TIMESTAMP
+      WHERE slug = \
+    \;
     
     return NextResponse.json({ success: true });
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (err) {
+    console.error(err);
+    return NextResponse.json({ error: 'Failed to update page' }, { status: 500 });
   }
 }
