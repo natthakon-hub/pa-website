@@ -1,4 +1,4 @@
-import PageEditor from '@/components/PageEditor';
+import PageEditor from '../../../../../components/PageEditor';
 import Link from 'next/link';
 
 export default async function EditPage({ params }: { params: { id: string } }) {
